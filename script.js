@@ -1,9 +1,14 @@
-const inputs = document.querySelectorAll('.controls input');
+const volumeInput = document.querySelector('.volume');
+const playbackSpeedInput = document.querySelector('.playbackSpeed');
 
-    function handleUpdate() {
-      const suffix = this.dataset.sizing || '';
-      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
-    }
+function updateVolume() {
+  video.volume = volumeInput.value;
+}
 
-    inputs.forEach(input => input.addEventListener('change', handleUpdate));
-    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+function updatePlaybackSpeed() {
+  video.playbackRate = playbackSpeedInput.value;
+}
+
+// Event listeners
+volumeInput.addEventListener('input', updateVolume);
+playbackSpeedInput.addEventListener('input', updatePlaybackSpeed);
