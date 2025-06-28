@@ -8,22 +8,27 @@
 <body>
 
   <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" controls></video>
+    <video class="viewer player__video" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" controls></video>
+
     <div class="controls">
+      <button class="player__button toggle">►</button>
+      <button class="rewind" data-skip="-10">« 10s</button>
+      <button data-skip="25">25s »</button>
+
       <label>Volume:
         <input type="range" class="volume" min="0" max="1" step="0.1" value="0.75">
       </label>
+
       <label>Speed:
         <input type="range" class="playbackSpeed" min="0.5" max="2" step="0.1" value="1">
       </label>
     </div>
-	  <div class="speed">
+
+    <div class="speed">
       <div class="speed-bar">1×</div>
     </div>
   </div>
 
-<script src="./script.js" defer></script>
-  //Your code goes here
-</script>
+  <script src="./script.js" defer></script>
 </body>
 </html>

@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const video = document.querySelector('.player__video');
   const toggle = document.querySelector('.toggle');
   const rewindBtn = document.querySelector('.rewind');
+  const skipForwardBtn = document.querySelector('[data-skip="25"]');
   const volumeInput = document.querySelector('.volume');
   const playbackSpeedInput = document.querySelector('.playbackSpeed');
   const speed = document.querySelector('.speed');
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Play/Pause toggle
+  // Toggle play/pause
   function togglePlay() {
     video.paused ? video.play() : video.pause();
   }
@@ -21,12 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
     toggle.textContent = video.paused ? '►' : '❚ ❚';
   }
 
-  // Rewind 10s
+  // Rewind
   function rewindVideo() {
     video.currentTime = Math.max(video.currentTime - 10, 0);
   }
 
-  // Skip 25s
+  // Skip forward
   function skipForward(e) {
     video.currentTime += parseFloat(e.target.dataset.skip);
   }
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     video.playbackRate = playbackSpeedInput.value;
   });
 
-  // Speed scrubber (visual + logic)
+  // Speed scrubber
   speed.addEventListener('mousemove', (e) => {
     const y = e.offsetY;
     const height = speed.clientHeight;
@@ -61,8 +62,5 @@ document.addEventListener("DOMContentLoaded", () => {
   video.addEventListener('play', updateToggleIcon);
   video.addEventListener('pause', updateToggleIcon);
   rewindBtn.addEventListener('click', rewindVideo);
-
-  // 25s skip button
-  const skipForwardBtn = document.querySelector('[data-skip="25"]');
   skipForwardBtn.addEventListener('click', skipForward);
 });
