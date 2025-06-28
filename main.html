@@ -9,12 +9,20 @@
 
   <div class="wrapper">
     <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" controls></video>
-    <div class="speed">
+    <div class="controls">
+      <label>Volume:
+        <input type="range" class="volume" min="0" max="1" step="0.1" value="0.75">
+      </label>
+      <label>Speed:
+        <input type="range" class="playbackSpeed" min="0.5" max="2" step="0.1" value="1">
+      </label>
+    </div>
+	  <div class="speed">
       <div class="speed-bar">1×</div>
     </div>
   </div>
 
-<script  src="./script.js">
+<script src="./script.js" defer></script>
   //Your code goes here
 </script>
 </body>
